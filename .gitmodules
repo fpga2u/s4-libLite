@@ -1,0 +1,18 @@
+[submodule "thirdparty/asio"]
+	path = thirdparty/asio
+	url = https://github.com/chriskohlhoff/asio
+[submodule "thirdparty/spdlog"]
+	path = thirdparty/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "thirdparty/readerwriterqueue"]
+	path = thirdparty/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue.git
+[submodule "thirdparty/concurrentqueue"]
+	path = thirdparty/concurrentqueue
+	url = https://github.com/cameron314/concurrentqueue
+[submodule "thirdparty/json"]
+	path = thirdparty/json
+	url = https://github.com/nlohmann/json
+[submodule "thirdparty/autogen_json_cpp"]
+	path = thirdparty/autogen_json_cpp
+	url = https://github.com/chinsaiki/autogen_json_cpp
