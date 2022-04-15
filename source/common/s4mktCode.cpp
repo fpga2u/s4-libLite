@@ -115,7 +115,7 @@ mktCodeI_t mktCodeStr_to_mktCodeInt(const std::string& mktCode)
 std::string mktCodeInt_to_mktCodeStr(mktCodeI_t mktCode)
 {
 	mktCodeI_t c;
-	char ch[9];
+	char ch[11];
 	if (mktCode >= SH_PRB && mktCode <= SH_PRB + PRB_MK) {
 		c = mktCode - SH_PRB;
 #ifdef _MSC_VER
@@ -129,7 +129,7 @@ std::string mktCodeInt_to_mktCodeStr(mktCodeI_t mktCode)
 #ifdef _MSC_VER
 		sprintf_s(ch, "sz%06d", c);
 #else
-		snprintf(ch, sizeof(ch), "sz%06d", c);
+        snprintf(ch, sizeof(ch), "sz%08d", c);
 #endif
 	}
 	else {
@@ -194,7 +194,7 @@ pureCodeI_t mktCodeStr_to_pureCodeInt(const std::string& mktCode)
 std::string mktCodeInt_to_pureCodeStr(mktCodeI_t mktCode)
 {
 	pureCodeI_t c;
-	char ch[7];
+	char ch[11];
 	if (mktCode >= SH_PRB && mktCode <= SH_PRB + PRB_MK) {
 		c = mktCode - SH_PRB;
 		if (c >= SH_CODE_MIN) {
