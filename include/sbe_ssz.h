@@ -26,6 +26,8 @@ extern "C"
 #define __MsgType_SSZ_INDEX_SNAP__              (11)
 #define __MsgType_SSZ_ORDER__                   (192)
 #define __MsgType_SSZ_EXECUTION__               (191)
+#define __MsgType_SSZ_OPTION_SNAP__             (13)
+#define __MsgType_SSZ_FUND_SNAP__               (12)
 
 typedef union SSZ_TradingPhaseCodePack_t 
 {
@@ -40,7 +42,7 @@ typedef union SSZ_TradingPhaseCodePack_t
 struct SBE_SSZ_header_t
 {
     uint8_t     SecurityIDSource;   //=102
-    uint8_t     MsgType;            //111, 11, 192, 191
+    uint8_t     MsgType;            //111, 11, 192, 191, 13, 12
     uint16_t    MsgLen;             //include this header, until ending byte of SBE message
     char        SecurityID[9];      // c8 + '\0'
     uint16_t    ChannelNo;          //
@@ -119,6 +121,62 @@ struct SBE_SSZ_exe_t
     uint8_t         Resv[3];
 }PACKED;
 
+
+//map from MsgType=300111, channel in [1050, 1059]
+struct SBE_SSZ_option_snap_t
+{
+    struct SBE_SSZ_header_t  Header;
+
+    int64_t         NumTrades;
+    int64_t         TotalVolumeTrade;
+    int64_t         TotalValueTrade;
+    int32_t         PrevClosePx;
+
+    int32_t         LastPx;
+    int32_t         OpenPx;
+    int32_t         HighPx;
+    int32_t         LowPx;
+
+    int32_t         BidWeightPx;
+    int64_t         BidWeightSize;
+    int32_t         AskWeightPx;
+    int64_t         AskWeightSize;
+    int32_t         UpLimitPx;  //无涨停价格限制 = 0x7fffffff (转自999999999.999900)
+    int32_t         DnLimitPx;  //无跌停价格限制 = 0x2710 (转自0.010000) 或 0x80000000 (转自-999999999.999900)
+    int64_t         ContractPos;//参考价
+    int32_t         RefPx;      //合约持仓量
+    struct price_level_t   BidLevel[10];
+    struct price_level_t   AskLevel[10];
+    uint64_t         TransactTime;
+    uint8_t          Resv[4];
+}PACKED;
+
+//map from MsgType=300111, channel in [1020, 1029]
+struct SBE_SSZ_fund_snap_t
+{
+    struct SBE_SSZ_header_t  Header;
+
+    int64_t         NumTrades;
+    int64_t         TotalVolumeTrade;
+    int64_t         TotalValueTrade;
+    int32_t         PrevClosePx;
+
+    int32_t         LastPx;
+    int32_t         OpenPx;
+    int32_t         HighPx;
+    int32_t         LowPx;
+
+    int32_t         BidWeightPx;
+    int64_t         BidWeightSize;
+    int32_t         AskWeightPx;
+    int64_t         AskWeightSize;
+    int32_t         UpLimitPx;  //无涨停价格限制 = 0x7fffffff (转自999999999.999900)
+    int32_t         DnLimitPx;  //无跌停价格限制 = 0x2710 (转自0.010000) 或 0x80000000 (转自-999999999.999900)
+    struct price_level_t   BidLevel[10];
+    struct price_level_t   AskLevel[10];
+    uint64_t        TransactTime;
+    int32_t         IOPV;
+}PACKED;
 
 #ifdef WIN32
 #pragma pack(pop)
