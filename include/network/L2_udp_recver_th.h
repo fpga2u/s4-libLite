@@ -28,6 +28,8 @@ struct L2Stats_t
     size_t recv_heartbeat_cnt;
     size_t recv_instrument_snap_cnt;
     size_t recv_index_snap_cnt;
+    size_t recv_fund_snap_cnt;
+    size_t recv_option_snap_cnt;
     size_t recv_order_cnt;
     size_t recv_exec_cnt;
     size_t recv_instrument_snapx5_cnt;
@@ -40,6 +42,8 @@ struct L2Stats_t
     size_t live_code_nb;
     size_t live_instrument_snap_cnt;
     size_t live_index_snap_cnt;
+    size_t live_fund_snap_cnt;
+    size_t live_option_snap_cnt;
     size_t live_order_cnt;
     size_t live_exec_cnt;
     size_t live_instrument_snapx5_cnt;

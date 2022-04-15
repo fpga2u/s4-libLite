@@ -143,8 +143,8 @@ struct SBE_SSZ_option_snap_t
     int64_t         AskWeightSize;
     int32_t         UpLimitPx;  //无涨停价格限制 = 0x7fffffff (转自999999999.999900)
     int32_t         DnLimitPx;  //无跌停价格限制 = 0x2710 (转自0.010000) 或 0x80000000 (转自-999999999.999900)
-    int64_t         ContractPos;//参考价
-    int32_t         RefPx;      //合约持仓量
+    int64_t         ContractPos;//合约持仓量
+    int32_t         RefPx;      //参考价
     struct price_level_t   BidLevel[10];
     struct price_level_t   AskLevel[10];
     uint64_t         TransactTime;

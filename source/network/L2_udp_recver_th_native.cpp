@@ -146,6 +146,28 @@ void L2_udp_recver_th_native::recv_thread()
                         len = 0;
                     }
                     break;
+                case __MsgType_SSZ_OPTION_SNAP__:
+                    if ((pH->SecurityIDSource == __SecurityIDSource_SSZ_ && pH->MsgLen == sizeof(SBE_SSZ_option_snap_t) && len >= (int)sizeof(SBE_SSZ_option_snap_t))) {
+                        _stats.recv_option_snap_cnt++;
+                        _stats.live_option_snap_cnt += liveTrans((char*)pH);
+                        len -= pH->MsgLen;
+                        p += pH->MsgLen;
+                    }else{
+                        _stats.recv_unknown_cnt++;
+                        len = 0;
+                    }
+                    break;
+                case __MsgType_SSZ_FUND_SNAP__:
+                    if ((pH->SecurityIDSource == __SecurityIDSource_SSZ_ && pH->MsgLen == sizeof(SBE_SSZ_fund_snap_t) && len >= (int)sizeof(SBE_SSZ_fund_snap_t))) {
+                        _stats.recv_fund_snap_cnt++;
+                        _stats.live_fund_snap_cnt += liveTrans((char*)pH);
+                        len -= pH->MsgLen;
+                        p += pH->MsgLen;
+                    }else{
+                        _stats.recv_unknown_cnt++;
+                        len = 0;
+                    }
+                    break;
                 case __MsgType_SSH_ORDER__:
                     if ((pH->SecurityIDSource == __SecurityIDSource_SSH_ && pH->MsgLen == sizeof(SBE_SSH_ord_t) && len >= (int)sizeof(SBE_SSH_ord_t)) ||
                         (pH->SecurityIDSource == __SecurityIDSource_SSZ_ && pH->MsgLen == sizeof(SBE_SSZ_ord_t) && len >= (int)sizeof(SBE_SSZ_ord_t))) {

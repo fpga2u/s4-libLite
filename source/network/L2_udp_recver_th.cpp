@@ -12,6 +12,8 @@ std::string L2Stats_t::toString() const
     s += "recv_heartbeat_cnt = " + std::to_string(recv_heartbeat_cnt) + "\n";
     s += "recv_instrument_snap_cnt = " + std::to_string(recv_instrument_snap_cnt) + "\n";
     s += "recv_index_snap_cnt = " + std::to_string(recv_index_snap_cnt) + "\n";
+    s += "recv_option_snap_cnt = " + std::to_string(recv_option_snap_cnt) + "\n";
+    s += "recv_fund_snap_cnt = " + std::to_string(recv_fund_snap_cnt) + "\n";
     s += "recv_order_cnt = " + std::to_string(recv_order_cnt) + "\n";
     s += "recv_exec_cnt = " + std::to_string(recv_exec_cnt) + "\n";
     s += "recv_instrument_snapx5_cnt = " + std::to_string(recv_instrument_snapx5_cnt) + "\n";
@@ -23,6 +25,8 @@ std::string L2Stats_t::toString() const
     s += "live_code_nb = " + std::to_string(live_code_nb) + "\n";
     s += "live_instrument_snap_cnt = " + std::to_string(live_instrument_snap_cnt) + "\n";
     s += "live_index_snap_cnt = " + std::to_string(live_index_snap_cnt) + "\n";
+    s += "live_option_snap_cnt = " + std::to_string(live_option_snap_cnt) + "\n";
+    s += "live_fund_snap_cnt = " + std::to_string(live_fund_snap_cnt) + "\n";
     s += "live_order_cnt = " + std::to_string(live_order_cnt) + "\n";
     s += "live_exec_cnt = " + std::to_string(live_exec_cnt) + "\n";
     s += "live_instrument_snapx5_cnt = " + std::to_string(live_instrument_snapx5_cnt) + "\n";

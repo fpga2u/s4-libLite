@@ -336,11 +336,10 @@ bool isFund(const std::string & MktCodeStr)
         || leading == "sh562"
         || leading == "sh563"
         || leading == "sh588"
-        || leading == "sz159"
         )
 		return true;
     leading = MktCodeStr.substr(0, 4);
-	if (leading == "sz16")
+	if (leading == "sz16" || leading == "sz15")
 		return true;
 
 	return false;
