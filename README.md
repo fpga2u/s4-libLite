@@ -23,7 +23,7 @@ git submodule update --init --recursive
 ### build
 - windows
 ```shell
-cd s4/build
+cd s4-libLite/build
 
 # Call VS Developer Command Prompt
 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
@@ -39,7 +39,7 @@ cmake --build . --target install --config Release
 
 - linux
 ```shell
-cd s4\build
+cd s4-libLite/build
 
 cmake ..
 
