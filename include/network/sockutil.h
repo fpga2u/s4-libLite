@@ -22,7 +22,7 @@
 #  include <arpa/inet.h>
 #  include <sys/ioctl.h>
 #  include <sys/socket.h>
-#  include <net/if.h>
+// #  include <net/if.h>
 #  include <netinet/in.h>
 #  include <netinet/tcp.h>
 #endif // defined(_WIN32)
