@@ -419,7 +419,7 @@ void for_each_netAdapter_posix(FUN &&fun){ //type: struct ifreq *
 }
 #endif //!defined(_WIN32) && !defined(__APPLE__)
 
-bool check_ip(string &address,const string &ip){
+static bool check_ip(string &address,const string &ip){
     if(ip != "127.0.0.1" && ip != "0.0.0.0") {
         /*获取一个有效IP*/
         address = ip;
